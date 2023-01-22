@@ -14,7 +14,7 @@ export class MailerService {
     if (!params.to)
       throw new Error('No recepient!. Please specify "to" property');
     if (!params.content)
-      throw new Error('No recepient!. Please specify "content" property');
+      throw new Error('No content!. Please specify "content" property');
   }
 
   sendEmail(params: any) {
@@ -24,7 +24,7 @@ export class MailerService {
       from: params.from || '"IfAThenB Service" <siema@horyzont.eu>',
       to: params.to,
       subject: params.subject || 'Email from ifAThenB',
-      text: 'Hello world?',
+      text: params.subject || 'Hello world',
       html: params.content,
       // headers: { 'x-myheader': 'test header' }
     });
